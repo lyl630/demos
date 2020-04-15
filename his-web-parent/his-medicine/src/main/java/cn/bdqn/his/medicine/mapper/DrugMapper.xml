@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.bdqn.his.medicine.mapper.DrugMapper">
+     <select id="findAll" resultType="Drug">
+         select * from drug
+     </select>
+    <select id="findAllByDrug" resultType="Drug">
+        select * from drug
+        <where>
+            <if test="drugTypeId !=null">and drugtypeid=#{drugTypeId}</if>
+            <if test="drugName !=null and drugName !=''">and dname like concat('%',#{drugName},'%')</if>
+        </where>
+    </select>
+    <select id="findAllDrugCategory" resultType="cn.bdqn.his.medicine.entity.DrugCategory">
+        select * from drugcategory
+    </select>
+</mapper>

@@ -24,7 +24,7 @@ import cn.bdqn.his.common.response.ResponseEnum;
  */
 @Api
 @RestController
-@RequestMapping("/api/medicine")
+@RequestMapping("/api/drug")
 public class UserController {
 
     @GetMapping("/user")

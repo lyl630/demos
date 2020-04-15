@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.bdqn.his.masterdata.mapper.PrescriptionMapper">
+    <!--查询所有处方类型-->
+    <select id="findAllPre" resultType="cn.bdqn.his.masterdata.entity.PreType">
+         select * from pretype
+     </select>
+    <!--按处方模板id查询处方模板详情信息-->
+    <select id="findByPreDetails" resultType="cn.bdqn.his.masterdata.entity.PrescriptionTempDetails">
+         SELECT * FROM `prescriptiontempdetails` WHERE `pretempid`=#{preTempId}
+    </select>
+    <!--按条件查询处方模板-->
+    <select id="findByPreTemp" resultType="cn.bdqn.his.masterdata.entity.PrescriptionTemp">
+         SELECT * FROM `prescriptiontemp`
+         <where>
+             <if test="preTypeId!=null">`pretype`=#{preTypeId}</if>
+             <if test="tempQuan!=null">and `templatequan`=#{tempQuan}</if>
+             <if test="name!=null and name!=''">AND (`templateid` like concat('%',#{name},'%') OR `templatename` like concat('%',#{name},'%'))</if>
+         </where>
+    </select>
+</mapper>

@@ -23,7 +23,7 @@ import java.util.Map;
  */
 @Api
 @RestController
-@RequestMapping("/api/masterdata")
+@RequestMapping("/api/drug")
 public class UserController {
 
     @GetMapping("/user")

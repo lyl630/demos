@@ -1,6 +1,6 @@
 package cn.bdqn.his.medicine.service;
 
-import cn.bdqn.his.medicine.entity.Medicine;
+import cn.bdqn.his.medicine.entity.Drug;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import lombok.extern.slf4j.Slf4j;
@@ -17,13 +17,14 @@ import java.util.List;
 @RunWith(SpringRunner.class)
 @Slf4j
 public class MedicineServiceImplTest {
-    @Resource MedicineService medicineService;
+    @Resource
+    DrugService drugService;
 
     @Test
     public void findAll() {
         PageHelper.startPage(1,2);
-        List<Medicine> list = medicineService.findAll();
-        PageInfo<Medicine> pageInfo = new PageInfo<>(list);
+        List<Drug> list = drugService.findAllDrug();
+        PageInfo<Drug> pageInfo = new PageInfo<>(list);
         log.debug(pageInfo.toString());
         pageInfo.getList().forEach(medicine -> {
             log.debug(medicine.toString());
@@ -32,8 +33,8 @@ public class MedicineServiceImplTest {
     @Test
     public void findAllBy() {
         PageHelper.startPage(2,2);
-        List<Medicine> list = medicineService.findAll(1,"化");
-        PageInfo<Medicine> pageInfo = new PageInfo<>(list);
+        List<Drug> list = drugService.findAllByDrug(1,"化");
+        PageInfo<Drug> pageInfo = new PageInfo<>(list);
         log.debug(pageInfo.toString());
         pageInfo.getList().forEach(medicine -> {
             log.debug(medicine.toString());

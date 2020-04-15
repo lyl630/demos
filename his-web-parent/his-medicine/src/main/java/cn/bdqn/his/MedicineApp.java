@@ -5,6 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+/**
+ * 药品启动类
+ */
 @SpringBootApplication
 @EnableOAuth2Sso
 @EnableSwagger2
